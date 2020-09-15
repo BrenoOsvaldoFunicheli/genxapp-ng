@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "genxapp-ng"
+    }
+  },
+  "defaultProject": "genxapp-ng",
+  "cli": {
+    "analytics": "4ba52eb0-fede-4311-8eff-6655296d4888"
+  }
 }
