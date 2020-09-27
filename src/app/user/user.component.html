@@ -1,1 +1,15 @@
-<p>user works!</p>
+<h2>Cadastrar Usuario</h2>
+<hr>
+<form [formGroup]="userForm" >
+  <label>Username:</label>
+  <input type="text" formControlName="username">
+
+  <label>Email:</label>
+  <input type="text" formControlName="email">
+
+  <label>Password:</label>
+  <input type="text" formControlName="password">
+
+  <button type="button" (click)="registerNewUser()">Post Data</button>
+</form>
+{{msgreturn}}
