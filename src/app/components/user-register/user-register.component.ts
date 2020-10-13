@@ -4,11 +4,11 @@ import { UserService } from '../../services/users/user.service';
 import { IUserPostRequest } from '../../shared/interfaces/users';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  selector: 'app-user-register',
+  templateUrl: './user-register.component.html',
+  styleUrls: ['./user-register.component.scss']
 })
-export class UserComponent implements OnInit {
+export class UserRegisterComponent implements OnInit {
 
   userModelRequest: IUserPostRequest;
   userForm: FormGroup;
