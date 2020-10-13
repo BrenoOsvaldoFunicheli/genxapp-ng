@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { UserServiceService } from '../services/users/user-service.service';
+import { UserServiceService } from '../services/users/user.service';
 import { IUserPostRequest } from '../shared/interfaces/users';
 
 @Component({
@@ -25,7 +25,7 @@ export class UserComponent implements OnInit {
     });
   }
 
-  registerNewUser(){
+  registerNewUser(): void {
     this.userModelRequest = this.userForm.value;
     this.userService.registerNewUser(this.userModelRequest).subscribe(
       (data) => console.log(data),

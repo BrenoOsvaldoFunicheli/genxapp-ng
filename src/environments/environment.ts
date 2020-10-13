@@ -7,16 +7,9 @@ export const environment = {
   users: {
     url: 'https://genxapp.herokuapp.com',
     routes: {
-      get_user: '/api/v1/users/',
-    }
-  },
-  cadastroUser:{
-    url: 'https://genxapp.herokuapp.com',
-    routes:{
-      post_newUser: '/api/v1/users/',
+      user: '/api/v1/users/',
     }
   }
-
 };
 
 /*
