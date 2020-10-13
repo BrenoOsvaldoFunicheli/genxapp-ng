@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { UserServiceService } from '../services/users/user.service';
-import { IUserPostRequest } from '../shared/interfaces/users';
+import { UserService } from '../../services/users/user.service';
+import { IUserPostRequest } from '../../shared/interfaces/users';
 
 @Component({
   selector: 'app-user',
@@ -9,11 +9,13 @@ import { IUserPostRequest } from '../shared/interfaces/users';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+
   userModelRequest: IUserPostRequest;
   userForm: FormGroup;
-  msgreturn;
+  msgreturn: string;
+
   constructor(
-    private userService: UserServiceService,
+    private userService: UserService,
     private fb: FormBuilder
   ) { }
 
