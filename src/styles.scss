@@ -1,2 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --orange-default: #F96432;
+  --dark-blue: #153254;
+  --light-blue: #5C7591;
+  --light-gray: #EBECF1;
+  --white-default: #FFFFFF;
+}
