@@ -12,7 +12,8 @@ export class UserRegisterComponent implements OnInit {
 
   userModelRequest: IUserPostRequest;
   userForm: FormGroup;
-  msgreturn: string;
+  isAlertOpenSuccess = false;
+  isAlertOpenError = false;
 
   constructor(
     private userService: UserService,
@@ -23,16 +24,21 @@ export class UserRegisterComponent implements OnInit {
     this.userForm = this.fb.group({
       username: [null],
       email: [null],
-      password: [null]
+      password: [null],
+      name: [null],
+      surename: [null]
     });
   }
 
   registerNewUser(): void {
     this.userModelRequest = this.userForm.value;
+    /* this.isAlertOpenSuccess = true; */
     this.userService.registerNewUser(this.userModelRequest).subscribe(
-      (data) => console.log(data),
+      (data) => {
+        this.isAlertOpenSuccess = true;
+      },
       (error) => {
-        this.msgreturn = error.message;
+        this.isAlertOpenError = true;
       }
     );
   }
