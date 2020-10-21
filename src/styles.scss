@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('/src/assets/font/Roboto-Regular.ttf')  format('truetype');
+}
+
 :root {
   --orange-default: #F96432;
   --dark-blue: #153254;
@@ -12,4 +17,8 @@
 html,
 body {
   height: 100%;
+}
+
+body {
+  font-family: 'Roboto';
 }
