@@ -10,11 +10,13 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   userUrl: string;
+  loginUrl: string;
 
   constructor(
     private http: HttpClient
   ) {
     this.userUrl = environment.users.url + environment.users.routes.user;
+    this.loginUrl = environment.users.url + environment.users.routes.login;
   }
 
   getAllUsers(): Observable<object> {
@@ -24,4 +26,8 @@ export class UserService {
   registerNewUser(user: IUserPostRequest): Observable<object> {
     return this.http.post(this.userUrl, user);
   }
+
+  // login(): Observable<object> {
+  //   return this.http.post(this.loginUrl)
+  // }
 }

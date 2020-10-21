@@ -1,7 +1,7 @@
 <div class="login-page">
   <form [formGroup] class="login-page__form">
-    <img class="mb-4" src="" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <img class="" src="../../../assets/images/logo-orange.png" alt="genxapp logo" height="160">
+    <p class="">Please sign in</p>
     <div class="row">
       <div class="form-group col">
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -10,12 +10,8 @@
     </div>
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+
+    <button class="mt-5 btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">Ainda não tem sua conta? <a routerLink="registro">Registre-se</a></p>
   </form>
 </div>
