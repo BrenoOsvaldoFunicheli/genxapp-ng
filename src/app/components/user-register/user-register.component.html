@@ -1,15 +1,49 @@
-<h2>Cadastrar Usuario</h2>
-<hr>
-<form [formGroup]="userForm" >
-  <label>Username:</label>
-  <input type="text" formControlName="username">
+<alert type="success" [dismissOnTimeout]="4000" [isOpen]="isAlertOpenSuccess">
+  <strong>Well done!</strong> You successfully read this important alert message.
+</alert>
 
-  <label>Email:</label>
-  <input type="text" formControlName="email">
+<alert type="danger" [dismissOnTimeout]="5000" [isOpen]="isAlertOpenError">
+  <strong>ERROR:</strong> You successfully read this important alert message.
+</alert>
 
-  <label>Password:</label>
-  <input type="text" formControlName="password">
+<section class="container-fluid" class="bg">
+  <section class="row justify-content-center">
+    <section class ="col-12 col-sm-6 col-md-3">
 
-  <button type="button" (click)="registerNewUser()">Post Data</button>
-</form>
-{{msgreturn}}
+      <form [formGroup]="userForm" class="form-register" >
+
+        <div class="card-title text-center" >
+          <img src="../../../assets/images/logo-orange.png" width="150px" height="150px">
+        </div>
+
+        <div class="form-group">
+          <label for="username" class="label">Username:</label>
+          <input type="text" class="form-control" id="username" type="text" formControlName="username">
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="label">Email address:</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" input type="text" formControlName="email">
+        </div>
+
+        <div class="form-group">
+          <label for="password"class="label" >Password:</label>
+          <input type="password" class="form-control" id="password" input type="text" formControlName="password">
+        </div>
+
+        <div class="form-group">
+          <label for="name" class="label">First Name:</label>
+          <input type="text" class="form-control" id="name" type="text" formControlName="name">
+        </div>
+
+        <div class="form-group">
+          <label for="surename" class="label">Last Name:</label>
+          <input type="text" class="form-control" id="Last Name" type="text" formControlName="surename">
+        </div>
+        <button type="button" class="btnResgisterUser btn-block btn btn-primary" (click)="registerNewUser()">Register User</button>
+
+      </form>
+
+    </section>
+  </section>
+</section>

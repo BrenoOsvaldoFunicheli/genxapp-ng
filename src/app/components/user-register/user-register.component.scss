@@ -1,5 +1,20 @@
-$orange-default: #F96432;
-$dark-blue: #153254;
-$light-blue: #5C7591;
-$light-gray: #EBECF1;
-$white-default: #FFFFFF;
+.bg{
+  background-color: var(--dark-blue);
+  width: 100%;
+  height: 100vh;
+  background-size: 100%;
+}
+
+.form-register{
+  position: absolute;
+  top: 15vh;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px var(--light-gray);
+  background-color: var(--light-blue);
+}
+
+.btnResgisterUser{
+  box-shadow: 0px 0px 10px 0px #153254;
+}
+
