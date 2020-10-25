@@ -7,12 +7,14 @@ import { LoginComponent } from './components/login/login.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

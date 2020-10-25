@@ -27,6 +27,18 @@ export class UserService {
     return this.http.post(this.userUrl, user);
   }
 
+  getUserDetails(user: IUserPostRequest): Observable<object>{
+    return this.http.get(this.userUrl, user);
+  }
+
+  putUpdateDetails(user: IUserPostRequest): Observable<object>{
+    return this.http.put(this.userUrl, user);
+  }
+
+  deleteUser(user: IUserPostRequest): Observable<object>{
+    return this.http.delete(this.userUrl, user);
+  }
+
   // login(): Observable<object> {
   //   return this.http.post(this.loginUrl)
   // }

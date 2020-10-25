@@ -1,0 +1,38 @@
+<div class="register-page">
+  <form [formGroup]="userEditForm" class="register-page__form">
+
+    <div class="card-title text-center">
+      <img src="../../../assets/images/logo-orange.png" width="150px" height="150px">
+    </div>
+
+    <div class="form-group">
+      <label for="username" class="label">Usuário:</label>
+      <input type="text" class="form-control" id="username" type="text" formControlName="username">
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="label">E-mail:</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" input type="text"
+        formControlName="email">
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="label">Senha:</label>
+      <input type="password" class="form-control" id="password" input type="text" formControlName="password">
+    </div>
+
+    <div class="form-group">
+      <label for="name" class="label">Nome:</label>
+      <input type="text" class="form-control" id="name" type="text" formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label for="surename" class="label">Sobrenome:</label>
+      <input type="text" class="form-control" id="Last Name" type="text" formControlName="surename">
+    </div>
+    <button type="button" class="btnResgisterUser btn-block btn btn-primary" (click)="registerNewUser()">
+      Registrar
+    </button>
+
+  </form>
+</div>
