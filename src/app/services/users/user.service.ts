@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { IUserPostRequest } from '../../shared/interfaces/users';
+import { IUserLoginRequest, IUserPostRequest } from '../../shared/interfaces/users';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -39,7 +39,8 @@ export class UserService {
     return this.http.delete(this.userUrl, user);
   }
 
-  // login(): Observable<object> {
-  //   return this.http.post(this.loginUrl)
-  // }
+  login(user: IUserLoginRequest): Observable<object> {
+    return this.http.post(this.loginUrl, user);
+  }
+
 }

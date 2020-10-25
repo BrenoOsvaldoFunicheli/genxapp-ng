@@ -11,7 +11,8 @@ export const environment = {
       login: '/api/v1/login/',
       details: '/api/v1/user_auth/',
       updateDetails: '/api/v1/user_auth/?format=json',
-      deleteUser: '/api/v1/users/'
+      deleteUser: '/api/v1/users/',
+      login: '/api/v1/login/'
     }
   }
 };

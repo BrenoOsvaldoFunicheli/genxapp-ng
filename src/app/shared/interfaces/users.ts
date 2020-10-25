@@ -6,3 +6,8 @@ export interface IUserPostRequest {
   surename: string;
 }
 
+export interface IUserLoginRequest {
+  username: string;
+  password: string;
+}
+
