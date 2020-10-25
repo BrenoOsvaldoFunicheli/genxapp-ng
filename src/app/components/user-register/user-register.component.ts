@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/users/user.service';
 import { IUserPostRequest } from '../../shared/interfaces/users';
 
@@ -22,11 +22,12 @@ export class UserRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
-      username: [null],
-      email: [null],
-      password: [null],
-      first_name: [null],
-      last_name: [null]
+      username: [null, Validators.required],
+      email: [null, Validators.required, Validators.email],
+      password: [null, Validators.required],
+      name: [null, Validators.required],
+      surename: [null, Validators.required]
+
     });
   }
 
