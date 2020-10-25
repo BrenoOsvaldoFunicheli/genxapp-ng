@@ -3,3 +3,8 @@ export interface IUserPostRequest {
   email: string;
   password: string;
 }
+
+export interface IUserLoginRequest {
+  username: string;
+  password: string;
+}

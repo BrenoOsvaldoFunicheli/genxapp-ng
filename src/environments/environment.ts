@@ -7,7 +7,7 @@ export const environment = {
   users: {
     url: 'https://genxapp.herokuapp.com',
     routes: {
-      user: '/api/v1/users/',
+      user: '/api/v1/user/',
       login: '/api/v1/login/'
     }
   }
