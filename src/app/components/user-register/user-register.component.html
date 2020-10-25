@@ -6,44 +6,43 @@
   <strong>ERROR:</strong> You successfully read this important alert message.
 </alert>
 
-<section class="container-fluid" class="bg">
-  <section class="row justify-content-center">
-    <section class ="col-12 col-sm-6 col-md-3">
+<div class="register-page">
+  <form [formGroup]="userForm" class="register-page__form">
 
-      <form [formGroup]="userForm" class="form-register" >
+    <div class="card-title text-center">
+      <img src="../../../assets/images/logo-orange.png" width="150px" height="150px">
+    </div>
 
-        <div class="card-title text-center" >
-          <img src="../../../assets/images/logo-orange.png" width="150px" height="150px">
-        </div>
+    <p>Registrar-se</p>
 
-        <div class="form-group">
-          <label for="username" class="label">Username:</label>
-          <input type="text" class="form-control" id="username" type="text" formControlName="username">
-        </div>
+    <div class="form-group">
+      <label for="username" class="label">Usuário:</label>
+      <input type="text" class="form-control" id="username" type="text" formControlName="username">
+    </div>
 
-        <div class="form-group">
-          <label for="email" class="label">Email address:</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" input type="text" formControlName="email">
-        </div>
+    <div class="form-group">
+      <label for="email" class="label">E-mail:</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" input type="text"
+        formControlName="email">
+    </div>
 
-        <div class="form-group">
-          <label for="password"class="label" >Password:</label>
-          <input type="password" class="form-control" id="password" input type="text" formControlName="password">
-        </div>
+    <div class="form-group">
+      <label for="password" class="label">Senha:</label>
+      <input type="password" class="form-control" id="password" input type="text" formControlName="password">
+    </div>
 
-        <div class="form-group">
-          <label for="name" class="label">First Name:</label>
-          <input type="text" class="form-control" id="name" type="text" formControlName="name">
-        </div>
+    <div class="form-group">
+      <label for="name" class="label">Nome:</label>
+      <input type="text" class="form-control" id="name" type="text" formControlName="name">
+    </div>
 
-        <div class="form-group">
-          <label for="surename" class="label">Last Name:</label>
-          <input type="text" class="form-control" id="Last Name" type="text" formControlName="surename">
-        </div>
-        <button type="button" class="btnResgisterUser btn-block btn btn-primary" (click)="registerNewUser()">Register User</button>
+    <div class="form-group">
+      <label for="surename" class="label">Sobrenome:</label>
+      <input type="text" class="form-control" id="Last Name" type="text" formControlName="surename">
+    </div>
+    <button type="button" class="btnResgisterUser btn-block btn btn-primary" (click)="registerNewUser()">
+      Registrar
+    </button>
 
-      </form>
-
-    </section>
-  </section>
-</section>
+  </form>
+</div>
