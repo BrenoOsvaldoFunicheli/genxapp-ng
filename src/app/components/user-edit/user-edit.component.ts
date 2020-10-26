@@ -24,19 +24,17 @@ export class UserEditComponent implements OnInit {
       username: [null, Validators.required],
       email: [null, Validators.email],
       password: [null, Validators.required],
-      firs_name: [null, Validators.required],
+      first_name: [null, Validators.required],
       last_name: [null, Validators.required]
     });
+
+    this.getUserInformation();
   }
 
   getUserInformation(): void {
-    this.userService.getUserDetails(this.userModelRequest).subscribe(
+    this.userService.getUserDetails().subscribe(
       (data) => {
-        username: [];
-        email: [];
-        password: [];
-        firs_name: [];
-        last_name: [];
+        console.log(data);
       },
       (error) => {
 
@@ -44,7 +42,7 @@ export class UserEditComponent implements OnInit {
     );
   }
 
-  putUpdateDetails(): void {
+  registerNewUser(): void {
     this.userModelRequest = this.userEditForm.value;
     /* this.isAlertOpenSuccess = true; */
     this.userService.registerNewUser(this.userModelRequest).subscribe(
@@ -57,17 +55,17 @@ export class UserEditComponent implements OnInit {
     );
   }
 
-  deleteUser(): void {
-    this.userModelRequest = this.userEditForm.value;
-    /* this.isAlertOpenSuccess = true; */
-    this.userService.deleteUser(this.userModelRequest).subscribe(
-      (data) => {
-        /* Retornar tela inicial */
-      },
-      (error) => {
+  // deleteUser(): void {
+  //   this.userModelRequest = this.userEditForm.value;
+  //   /* this.isAlertOpenSuccess = true; */
+  //   this.userService.deleteUser(this.userModelRequest).subscribe(
+  //     (data) => {
+  //       /* Retornar tela inicial */
+  //     },
+  //     (error) => {
 
-      }
-    );
-  }
+  //     }
+  //   );
+  // }
 
 }

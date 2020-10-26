@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { IUserLoginRequest } from 'src/app/shared/interfaces/users';
-import { UserService } from '../../services/users/user.service';
+import { Router } from '@angular/router';
+import { ILoginResponse, IUserLoginRequest } from 'src/app/shared/interfaces/account';
+import { AccountService } from '../../services/account/account.service';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +13,13 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   userLoginRequest: IUserLoginRequest;
+  authToken: string;
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService
-  ) {  }
+    private userService: AccountService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -28,14 +31,18 @@ export class LoginComponent implements OnInit {
   onLogin(): void {
     this.userLoginRequest = this.loginForm.value;
 
-    this.userService.login(this.loginForm.value).subscribe(
-      (data) => {
-        console.log('success: ',  data);
-      },
-      (error) => {
-        console.log('error: ', error);
-      }
-    );
+    if (this.loginForm.valid) {
+      this.userService.login(this.loginForm.value).subscribe(
+        (data: ILoginResponse) => {
+          window.localStorage.setItem('token', data.access);
+          console.log('Login efetuado: ', data);
+          this.router.navigate(['']);
+        },
+        (error) => {
+          console.log('error: ', error);
+        }
+      );
+    }
   }
 
 }

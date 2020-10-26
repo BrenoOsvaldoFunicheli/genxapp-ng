@@ -5,9 +5,3 @@ export interface IUserPostRequest {
   name: string;
   surename: string;
 }
-
-export interface IUserLoginRequest {
-  username: string;
-  password: string;
-}
-

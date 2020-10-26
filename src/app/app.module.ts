@@ -8,13 +8,18 @@ import { UserRegisterComponent } from './components/user-register/user-register.
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { AuthenticationComponent } from './layout/authentication/authentication.component';
+import { HomeComponent } from './layout/home/home.component';
+import { httpInterceptorProviders } from './shared/http-interceptors/';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UserRegisterComponent,
-    UserEditComponent
+    UserEditComponent,
+    AuthenticationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,9 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     ReactiveFormsModule,
     AlertModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
