@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IUserLoginRequest, IUserLoginResponse } from 'src/app/shared/interfaces/account';
 import { environment } from 'src/environments/environment';
-import * as jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
