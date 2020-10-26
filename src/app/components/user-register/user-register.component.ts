@@ -25,9 +25,8 @@ export class UserRegisterComponent implements OnInit {
       username: [null, Validators.required],
       email: [null, Validators.required, Validators.email],
       password: [null, Validators.required],
-      name: [null, Validators.required],
-      surename: [null, Validators.required]
-
+      first_name: [null, Validators.required],
+      last_name: [null, Validators.required]
     });
   }
 

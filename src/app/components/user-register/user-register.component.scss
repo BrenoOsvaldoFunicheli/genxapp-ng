@@ -10,5 +10,18 @@
     max-width: 400px;
     width: 100%;
     margin: auto;
+    position: relative;
+  }
+
+  &__btn-back {
+    font-size: 24px;
+    position: absolute;
+    color: var(--black-default);
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
   }
 }

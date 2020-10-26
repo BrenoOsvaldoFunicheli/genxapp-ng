@@ -7,13 +7,17 @@
 </alert>
 
 <div class="register-page">
-  <form [formGroup]="userForm" class="register-page__form">
+  <form [formGroup]="userForm" class="register-page__form" (ngSubmit)="registerNewUser()" >
+
+    <a routerLink="/login" class="register-page__btn-back">
+      <i class="fas fa-arrow-left"></i>
+    </a>
 
     <div class="card-title text-center">
       <img src="../../../assets/images/logo-orange.png" width="150px" height="150px">
     </div>
 
-    <p>Registrar-se</p>
+    <p class="register-page__title">Cadastre-se</p>
 
     <div class="form-group">
       <label class="label">Usuário:</label>
@@ -39,8 +43,8 @@
       <label class="label">Sobrenome:</label>
       <input type="text" class="form-control" formControlName="last_name">
     </div>
-    <button type="button" class="btnResgisterUser btn-block btn btn-primary" (click)="registerNewUser()">
-      Registrar
+    <button type="submit" class="btnResgisterUser btn-block btn btn-primary">
+      Cadastrar
     </button>
 
   </form>
