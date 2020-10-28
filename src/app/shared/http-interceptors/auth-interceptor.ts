@@ -25,7 +25,7 @@ export class AuthInterceptor implements HttpInterceptor {
       });
     }
 
-    // retorno o request com o erro tratado
+    // Retorna a request com o erro tratado
     return next.handle(request)
       .pipe(
         catchError(this.handleError)

@@ -1,0 +1,14 @@
+.update-page {
+  height: 100%;
+  display: flex;
+
+  &__form {
+    padding: 30px;
+    border-radius: 10px;
+    background-color: var(--light-gray);
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+  }
+}

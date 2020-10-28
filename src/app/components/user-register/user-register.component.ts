@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/users/user.service';
-import { IUserPostRequest } from '../../shared/interfaces/users';
+import { IUser } from '../../shared/interfaces/users';
 
 @Component({
   selector: 'app-user-register',
@@ -10,10 +10,7 @@ import { IUserPostRequest } from '../../shared/interfaces/users';
 })
 export class UserRegisterComponent implements OnInit {
 
-  userModelRequest: IUserPostRequest;
   userForm: FormGroup;
-  isAlertOpenSuccess = false;
-  isAlertOpenError = false;
 
   constructor(
     private userService: UserService,
@@ -31,14 +28,9 @@ export class UserRegisterComponent implements OnInit {
   }
 
   registerNewUser(): void {
-    this.userModelRequest = this.userForm.value;
-    /* this.isAlertOpenSuccess = true; */
-    this.userService.registerNewUser(this.userModelRequest).subscribe(
+    this.userService.registerNewUser(this.userForm.value).subscribe(
       (data) => {
-        this.isAlertOpenSuccess = true;
-      },
-      (error) => {
-        this.isAlertOpenError = true;
+        console.log(data);
       }
     );
   }

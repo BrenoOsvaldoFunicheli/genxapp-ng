@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { IUserPostRequest } from '../../shared/interfaces/users';
+import { IUser } from '../../shared/interfaces/users';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,19 +11,19 @@ export class UserService {
 
   userUrl: string;
   getUserDetailsUrl: string;
+  updateUserDetailsUrl: string;
+  deleteUserUrl: string;
 
   constructor(
     private http: HttpClient
   ) {
     this.userUrl = environment.users.url + environment.users.routes.user;
     this.getUserDetailsUrl = environment.users.url + environment.users.routes.details;
+    this.updateUserDetailsUrl = environment.users.url + environment.users.routes.updateDetails;
+    this.deleteUserUrl = environment.users.url + environment.users.routes.deleteUser;
   }
 
-  // getAllUsers(): Observable<object> {
-  //   return this.http.get(this.userUrl);
-  // }
-
-  registerNewUser(user: IUserPostRequest): Observable<object> {
+  registerNewUser(user: IUser): Observable<object> {
     return this.http.post(this.userUrl, user);
   }
 
@@ -31,12 +31,12 @@ export class UserService {
     return this.http.get(this.getUserDetailsUrl);
   }
 
-  putUpdateDetails(user: IUserPostRequest): Observable<object>{
-    return this.http.put(this.userUrl, user);
+  updateUserDetails(user: IUser): Observable<object>{
+    return this.http.put(this.updateUserDetailsUrl, user);
   }
 
-  // deleteUser(user: IUserPostRequest): Observable<object>{
-  //   return this.http.delete(this.userUrl, user);
-  // }
+  deleteUser(): Observable<object>{
+    return this.http.delete(this.deleteUserUrl);
+  }
 
 }
