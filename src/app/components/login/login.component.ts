@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
           } else {
             window.localStorage.setItem('token', data.access);
           }
-
           this.router.navigate(['']);
         }
       );
@@ -47,8 +46,9 @@ export class LoginComponent implements OnInit {
 
   onStayLogged(refreshToken: string): void {
     this.accountService.refresh(refreshToken).subscribe(
-      data => {
-        console.log(data);
+      (data: ILoginResponse) => {
+        window.localStorage.setItem('token', data.access);
+        this.router.navigate(['']);
       }
     );
   }
