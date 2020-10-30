@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AuthenticationComponent } from './layout/authentication/authentication.component';
@@ -26,7 +26,8 @@ import { httpInterceptorProviders } from './shared/http-interceptors/';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    FormsModule
   ],
   providers: [
     httpInterceptorProviders

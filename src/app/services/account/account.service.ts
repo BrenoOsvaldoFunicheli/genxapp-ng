@@ -10,15 +10,26 @@ import { environment } from 'src/environments/environment';
 export class AccountService {
 
   loginUrl: string;
+  refreshUrl: string;
 
   constructor(
     private http: HttpClient
   ) {
-    this.loginUrl = environment.account.url + environment.account.routes.login;
+    this.loginUrl = this.buildUrls('login');
+    this.refreshUrl = this.buildUrls('refresh');
+  }
+
+  buildUrls(route: string): string {
+    const result = environment.account.url + environment.account.routes[route];
+    return result;
   }
 
   login(user: IUserLoginRequest): Observable<IUserLoginResponse> {
     return this.http.post<IUserLoginResponse>(this.loginUrl, user);
+  }
+
+  refresh(refreshToken: string): Observable<object> {
+    return this.http.post(this.refreshUrl, { refresh: refreshToken});
   }
 
   getAuthorizationToken(): string {

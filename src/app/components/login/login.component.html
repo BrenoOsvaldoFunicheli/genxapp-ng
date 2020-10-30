@@ -4,7 +4,7 @@
 
     <img class="" src="../../../assets/images/logo-orange.png" alt="genxapp logo" height="160">
 
-    <p class="">Por favor, faça seu login</p>
+    <p class="login-page__title">Por favor, faça seu login</p>
 
     <div class="row">
       <div class="form-group col">
@@ -21,6 +21,10 @@
       </div>
     </div>
 
+    <div class="login-page__stay-logged">
+      <input type="checkbox" [(ngModel)]="stayLogged" [ngModelOptions]="{standalone: true}" id="stayLoggedCheck" >
+      <label for="stayLoggedCheck" class="m-0">Permanecer logado</label>
+    </div>
 
     <button class="mt-5 btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
     <p class="mt-5 mb-3 text-muted">Ainda não tem sua conta? <a routerLink="/registro">Registre-se</a></p>

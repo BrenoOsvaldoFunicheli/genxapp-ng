@@ -8,7 +8,8 @@ export const environment = {
   account: {
     url: 'https://genxapp.herokuapp.com',
     routes: {
-      login: '/api/v1/login/'
+      login: '/api/v1/login/',
+      refresh: '/api/v1/login/refresh'
     }
   },
 
