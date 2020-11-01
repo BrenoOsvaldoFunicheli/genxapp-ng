@@ -1,5 +1,43 @@
 .home-page {
-  &__nav {
 
+  &__nav {
+    height: 60px;
+    background-color: var(--dark-blue);
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .image-logo {
+      height: 100%;
+
+      img {
+        height: 70px;
+      }
+
+    }
+
+    .user-operations{
+      display: flex;
+      align-items: center;
+      color: var(--white-default);
+
+      &__user-info {
+        margin-right: 16px;
+        display: flex;
+        align-items: center;
+        i {
+          margin-right: 8px;
+        }
+        p {
+          color: var(--white-default);
+        }
+      }
+    }
+
+    i {
+      color: var(--white-default);
+
+    }
   }
 }
