@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ITable, ITableResponse } from '../../shared/interfaces/table';
-import { UserService } from '../../services/users/user.service';
+import { ITable, ITableResponse } from '../../../shared/interfaces/table';
+import { UserService } from '../../../services/users/user.service';
 
 @Component({
   selector: 'app-tables',

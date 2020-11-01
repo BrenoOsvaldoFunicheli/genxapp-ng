@@ -1,16 +1,17 @@
-<!-- Image and text -->
 <div class="home-page">
-  <nav class="home-page__nav">
+  <nav class="home-page__nav h-100">
     <a href="">
       <div class="image-logo">
-        <img src="../../../assets/images/logo-orange.png" alt="genxapp logo" loading="lazy" >
+        <img src="../../../assets/images/logo-orange.png" alt="genxapp logo">
       </div>
     </a>
 
     <div class="user-operations">
       <a routerLink="edicao">
         <div class="user-operations__user-info">
-            <i class="fas fa-user"></i>
+            <div class="div-icon-user">
+              <i class="fas fa-user"></i>
+            </div>
             <p class="m-0">{{userName}}</p>
         </div>
       </a>
@@ -19,8 +20,8 @@
       </button>
     </div>
 
-
-
   </nav>
-  <router-outlet></router-outlet>
+  <div class="container h-100">
+    <router-outlet></router-outlet>
+  </div>
 </div>

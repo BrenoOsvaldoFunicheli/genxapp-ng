@@ -14,7 +14,6 @@
       img {
         height: 70px;
       }
-
     }
 
     .user-operations{
@@ -23,12 +22,21 @@
       color: var(--white-default);
 
       &__user-info {
-        margin-right: 16px;
         display: flex;
         align-items: center;
-        i {
+        padding-right: 16px;
+        border-right: 2px solid #ffffff80;
+
+        .div-icon-user {
+          height: 30px;
+          width: 30px;
+          background-color: var(--dark-gray);
+          border-radius: 50%;
+          text-align: center;
+          padding-top: 3px;
           margin-right: 8px;
         }
+
         p {
           color: var(--white-default);
         }

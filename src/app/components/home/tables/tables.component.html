@@ -1,0 +1,20 @@
+<div class="table-page">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let column of tarbaseTable.columns">
+            {{ column.name }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of tarbaseTable.data; let i = index">
+          <td *ngFor="let column of tarbaseTable.columns">
+            {{ d[column.id] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

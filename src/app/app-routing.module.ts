@@ -1,12 +1,12 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { LoginComponent } from './components/authentication/login/login.component';
+import { UserRegisterComponent } from './components/authentication/user-register/user-register.component';
 import { AuthGuard } from './services/account/auth.guard';
-import { HomeComponent } from './layout/home/home.component';
-import { UserEditComponent } from './components/user-edit/user-edit.component';
-import { AuthenticationComponent } from './layout/authentication/authentication.component';
-import { TablesComponent } from './components/tables/tables.component';
+import { HomeComponent } from './components/home/home.component';
+import { UserEditComponent } from './components/home/user-edit/user-edit.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { TablesComponent } from './components/home/tables/tables.component';
 
 const routes: Routes = [
   {
