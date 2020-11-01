@@ -15,7 +15,7 @@ export class TablesComponent implements OnInit {
     private userService: UserService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getTarbase();
     this.tarbaseTable = {
       columns: [
@@ -30,7 +30,7 @@ export class TablesComponent implements OnInit {
     }
   }
 
-  getTarbase(){
+  getTarbase(): void {
     this.userService.tarbase().subscribe(
       (data: ITableResponse) => {
         this.tarbaseTable.data = data.results;
