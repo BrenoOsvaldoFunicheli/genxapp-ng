@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from '../../../services/users/user.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class UserRegisterComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class UserRegisterComponent implements OnInit {
   registerNewUser(): void {
     this.userService.registerNewUser(this.userForm.value).subscribe(
       (data) => {
-        console.log(data);
+        this.router.navigate(['login']);
       }
     );
   }

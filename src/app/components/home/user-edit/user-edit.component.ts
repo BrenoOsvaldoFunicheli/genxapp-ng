@@ -52,7 +52,7 @@ export class UserEditComponent implements OnInit {
   updateUserDetails(): void {
     this.userService.updateUserDetails(this.userEditForm.value).subscribe(
       data => {
-        console.log(data);
+        this.router.navigate(['']);
       }
     );
   }
@@ -60,7 +60,6 @@ export class UserEditComponent implements OnInit {
   deleteUser(): void {
     this.userService.deleteUser().subscribe(
       (data) => {
-        console.log(data);
         this.router.navigate(['/login']);
       }
     );

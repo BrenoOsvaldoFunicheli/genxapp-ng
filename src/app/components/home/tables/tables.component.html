@@ -1,16 +1,30 @@
 <div class="table-page">
+  <div class="dropdown table-page__dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      {{ tableActive }}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <button class="dropdown-item" (click)="getTarbase()"
+        [ngStyle]="{ backgroundColor: (tableActive === 'Tarbase') ? '#e8e8e8' : '' }">Tarbase</button>
+      <button class="dropdown-item" (click)="getTargetScan()"
+        [ngStyle]="{ backgroundColor: (tableActive === 'Target Scan') ? '#e8e8e8' : '' }">Target Scan</button>
+      <!-- <button class="dropdown-item" (click)="getMirDb()" >Mir DB</button> -->
+    </div>
+  </div>
+
   <div class="table-responsive">
     <table class="table">
       <thead>
         <tr>
-          <th *ngFor="let column of tarbaseTable.columns">
+          <th *ngFor="let column of table.columns">
             {{ column.name }}
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let d of tarbaseTable.data; let i = index">
-          <td *ngFor="let column of tarbaseTable.columns">
+        <tr *ngFor="let d of table.data; let i = index">
+          <td *ngFor="let column of table.columns">
             {{ d[column.id] }}
           </td>
         </tr>

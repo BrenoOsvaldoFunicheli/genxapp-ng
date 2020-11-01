@@ -14,15 +14,19 @@ export class UserService {
   updateUserDetailsUrl: string;
   deleteUserUrl: string;
   tarbaseUrl: string;
+  tgScanUrl: string;
+  mirDbUrl: string;
 
   constructor(
     private http: HttpClient
   ) {
     this.userUrl = this.buildUrls('user');
     this.getUserDetailsUrl = this.buildUrls('details');
-    this.updateUserDetailsUrl = this.buildUrls('delete');
+    this.updateUserDetailsUrl = this.buildUrls('updateDetails');
     this.deleteUserUrl = this.buildUrls('delete');
     this.tarbaseUrl = this.buildUrls('tarbase');
+    this.tgScanUrl = this.buildUrls('tgscan');
+    this.mirDbUrl = this.buildUrls('mirdb');
   }
 
   buildUrls(route: string): string {
@@ -34,20 +38,28 @@ export class UserService {
     return this.http.post(this.userUrl, user);
   }
 
-  getUserDetails(): Observable<object>{
+  getUserDetails(): Observable<object> {
     return this.http.get(this.getUserDetailsUrl);
   }
 
-  updateUserDetails(user: IUser): Observable<object>{
+  updateUserDetails(user: IUser): Observable<object> {
     return this.http.put(this.updateUserDetailsUrl, user);
   }
 
-  deleteUser(): Observable<object>{
+  deleteUser(): Observable<object> {
     return this.http.delete(this.deleteUserUrl);
   }
 
-  tarbase(): Observable<object>{
+  tarbase(): Observable<object> {
     return this.http.get(this.tarbaseUrl);
+  }
+
+  targetScan(): Observable<object> {
+    return this.http.get(this.tgScanUrl);
+  }
+
+  mirDb(): Observable<object> {
+    return this.http.get(this.mirDbUrl);
   }
 
 }

@@ -18,9 +18,11 @@ export const environment = {
     routes: {
       user: '/api/v1/user/',
       details: '/api/v1/user_auth/',
-      updateDetails: '/api/v1/user_auth/?format=json',
+      updateDetails: '/api/v1/user_auth/',
       deleteUser: '/api/v1/user_auth/',
-      tarbase: '/api/v1/tarbase/'
+      tarbase: '/api/v1/tarbase/',
+      tgscan: '/api/v1/tgscan/',
+      mirdb: '/api/v1/mirdb/'
     }
   }
 };

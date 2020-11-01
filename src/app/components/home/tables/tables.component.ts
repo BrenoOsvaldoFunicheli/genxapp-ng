@@ -9,7 +9,12 @@ import { UserService } from '../../../services/users/user.service';
 })
 export class TablesComponent implements OnInit {
 
+  table: ITable;
   tarbaseTable: ITable;
+  tgScanTable: ITable;
+  mirDbTable: ITable;
+
+  tableActive: string;
 
   constructor(
     private userService: UserService
@@ -17,6 +22,9 @@ export class TablesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTarbase();
+  }
+
+  getTarbase(): void {
     this.tarbaseTable = {
       columns: [
         { id: 'mirna', name: 'Mirna'},
@@ -27,14 +35,43 @@ export class TablesComponent implements OnInit {
         { id: 'up_down', name:  'Cima/Baixo'}
       ],
       data: []
-    }
-  }
+    };
+    this.table = this.tarbaseTable;
+    this.tableActive = 'Tarbase';
 
-  getTarbase(): void {
     this.userService.tarbase().subscribe(
       (data: ITableResponse) => {
         this.tarbaseTable.data = data.results;
       }
-    )
+    );
   }
+
+  getTargetScan(): void {
+    this.tgScanTable = {
+      columns: [
+        { id: 'mirna', name: 'Mirna'},
+        { id: 'gene_id', name: 'Identificador do gene' },
+        { id: 'gene_name', name: 'Nome do Gene'},
+        { id: 'specie', name:  'Espécies'},
+        { id: 'score', name: 'Pontuação' }
+      ],
+      data: []
+    };
+    this.table = this.tgScanTable;
+    this.tableActive = 'Target Scan';
+
+    this.userService.targetScan().subscribe(
+      (data: ITableResponse) => {
+        this.tgScanTable.data = data.results;
+      }
+    );
+  }
+
+  // getMirDb(): void {
+  //   this.userService.mirDb().subscribe(
+  //     (data: ITableResponse) => {
+  //       this.tarbaseTable.data = data.results;
+  //     }
+  //   );
+  // }
 }
