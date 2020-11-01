@@ -19,7 +19,8 @@ export const environment = {
       user: '/api/v1/user/',
       details: '/api/v1/user_auth/',
       updateDetails: '/api/v1/user_auth/?format=json',
-      deleteUser: '/api/v1/user_auth/'
+      deleteUser: '/api/v1/user_auth/',
+      tarbase: '/api/v1/tarbase/'
     }
   }
 };

@@ -1,11 +1,26 @@
 <!-- Image and text -->
 <div class="home-page">
   <nav class="home-page__nav">
-  <a href="">
-    <img src="../../../assets/images/icon.png" width="30" alt="genxapp logo" loading="lazy">
-    GenX App
-  </a>
-</nav>
-<router-outlet></router-outlet>
-</div>
+    <a href="">
+      <div class="image-logo">
+        <img src="../../../assets/images/logo-orange.png" alt="genxapp logo" loading="lazy" >
+      </div>
+    </a>
 
+    <div class="user-operations">
+      <a routerLink="edicao">
+        <div class="user-operations__user-info">
+            <i class="fas fa-user"></i>
+            <p class="m-0">{{userName}}</p>
+        </div>
+      </a>
+      <button (click)="logout()" class="btn btn-link">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    </div>
+
+
+
+  </nav>
+  <router-outlet></router-outlet>
+</div>

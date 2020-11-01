@@ -13,14 +13,21 @@ export class UserService {
   getUserDetailsUrl: string;
   updateUserDetailsUrl: string;
   deleteUserUrl: string;
+  tarbaseUrl: string;
 
   constructor(
     private http: HttpClient
   ) {
-    this.userUrl = environment.users.url + environment.users.routes.user;
-    this.getUserDetailsUrl = environment.users.url + environment.users.routes.details;
-    this.updateUserDetailsUrl = environment.users.url + environment.users.routes.updateDetails;
-    this.deleteUserUrl = environment.users.url + environment.users.routes.deleteUser;
+    this.userUrl = this.buildUrls('user');
+    this.getUserDetailsUrl = this.buildUrls('details');
+    this.updateUserDetailsUrl = this.buildUrls('delete');
+    this.deleteUserUrl = this.buildUrls('delete');
+    this.tarbaseUrl = this.buildUrls('tarbase');
+  }
+
+  buildUrls(route: string): string {
+    const result = environment.users.url + environment.users.routes[route];
+    return result;
   }
 
   registerNewUser(user: IUser): Observable<object> {
@@ -37,6 +44,10 @@ export class UserService {
 
   deleteUser(): Observable<object>{
     return this.http.delete(this.deleteUserUrl);
+  }
+
+  tarbase(): Observable<object>{
+    return this.http.get(this.tarbaseUrl);
   }
 
 }

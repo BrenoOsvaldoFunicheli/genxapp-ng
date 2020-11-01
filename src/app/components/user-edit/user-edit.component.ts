@@ -65,10 +65,4 @@ export class UserEditComponent implements OnInit {
       }
     );
   }
-
-  logout(): void {
-    window.localStorage.clear();
-    this.router.navigate(['/login']);
-  }
-
 }

@@ -11,6 +11,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AuthenticationComponent } from './layout/authentication/authentication.component';
 import { HomeComponent } from './layout/home/home.component';
 import { httpInterceptorProviders } from './shared/http-interceptors/';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { httpInterceptorProviders } from './shared/http-interceptors/';
     HttpClientModule,
     ReactiveFormsModule,
     AlertModule.forRoot(),
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [
     httpInterceptorProviders
