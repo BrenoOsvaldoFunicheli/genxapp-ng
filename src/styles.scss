@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import './app/styles/classes';
+@import './app/styles/colors';
 
 /* roboto-regular - latin */
 @font-face {
@@ -11,16 +13,6 @@
        url('./assets/fonts/roboto/roboto-v20-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-:root {
-  --orange-default: #F96432;
-  --dark-blue: #153254;
-  --light-blue: #5C7591;
-  --dark-gray: #AAAAAA;
-  --light-gray: #EBECF1;
-  --white-default: #FFFFFF;
-  --black-default: #212529;
-}
-
 html,
 body {
   height: 100%;
@@ -29,12 +21,6 @@ body {
 body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--light-gray);
-}
-
-a,
-a:hover {
-  color: inherit;
-  text-decoration: inherit;
 }
 
 th {
