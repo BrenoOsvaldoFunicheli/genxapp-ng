@@ -3,12 +3,14 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse, HttpEvent
 import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AccountService } from 'src/app/services/account/account.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(
-    private accountService: AccountService
+    private accountService: AccountService,
+    private toastr: ToastrService
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -32,17 +34,25 @@ export class AuthInterceptor implements HttpInterceptor {
       );
   }
 
-  private handleError(error: HttpErrorResponse): Observable<never> {
-    if (error.error instanceof ErrorEvent) {
-      // Erro de client-side ou de rede
-      console.error('Ocorreu um erro:', error.error.message);
-    } else {
-      // Erro retornando pelo backend
-      console.error(
-        `Código do erro ${error.status}, ` +
-        `Erro: ${JSON.stringify(error.error)}`);
-    }
-    // retornar um observable com uma mensagem amigavel.
+  handleError(err: HttpErrorResponse): Observable<never> {
+    debugger
+    console.log(err.status)
+    this.toastr.error('', 'Ocorreu um erro, tente novamente');
+    // if (err.error instanceof ErrorEvent) {
+    //   this.toastr.error('', 'Ocorreu um erro, tente novamente');
+    //   // Erro de client-side ou de rede
+    //   console.log('ALOOOOO');
+    //   console.error('Ocorreu um erro:', err.error.message);
+    // } else {
+    //   this.toastr.error('', 'Ocorreu um erro, tente novamente');
+    //   console.log('ALUUUUU');
+    //   // Erro retornando pelo backend
+    //   console.error(
+    //     `Código do erro ${err.status}, ` +
+    //     `Erro: ${JSON.stringify(err.error)}`);
+    // }
+    // // retornar um observable com uma mensagem amigavel.
+    // // this.toastr.error('', 'Ocorreu um erro, tente novamente');
     return throwError('Ocorreu um erro, tente novamente');
   }
 }
