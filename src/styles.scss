@@ -48,3 +48,15 @@ tbody tr:nth-child(odd) {
 tbody tr:nth-child(even) {
   background-color: var(--white-default);
 }
+
+// Toastr
+.toast-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.toast-container .ngx-toastr {
+  box-shadow: none !important;
+  width: auto !important;
+}

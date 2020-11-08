@@ -4,13 +4,16 @@ import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AccountService } from 'src/app/services/account/account.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { defaultErrorMessage } from '../consts';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(
     private accountService: AccountService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -35,24 +38,12 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   handleError(err: HttpErrorResponse): Observable<never> {
-    debugger
-    console.log(err.status)
-    this.toastr.error('', 'Ocorreu um erro, tente novamente');
-    // if (err.error instanceof ErrorEvent) {
-    //   this.toastr.error('', 'Ocorreu um erro, tente novamente');
-    //   // Erro de client-side ou de rede
-    //   console.log('ALOOOOO');
-    //   console.error('Ocorreu um erro:', err.error.message);
-    // } else {
-    //   this.toastr.error('', 'Ocorreu um erro, tente novamente');
-    //   console.log('ALUUUUU');
-    //   // Erro retornando pelo backend
-    //   console.error(
-    //     `Código do erro ${err.status}, ` +
-    //     `Erro: ${JSON.stringify(err.error)}`);
-    // }
-    // // retornar um observable com uma mensagem amigavel.
-    // // this.toastr.error('', 'Ocorreu um erro, tente novamente');
-    return throwError('Ocorreu um erro, tente novamente');
+    let errorMessage: string;
+    if (err.status === 401 || err.status === 403) {
+      errorMessage = 'Usuário ou senha inválidos';
+    } else {
+      errorMessage = defaultErrorMessage;
+    }
+    return throwError(errorMessage);
   }
 }
