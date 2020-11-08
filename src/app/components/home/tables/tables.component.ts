@@ -67,11 +67,24 @@ export class TablesComponent implements OnInit {
     );
   }
 
-  // getMirDb(): void {
-  //   this.userService.mirDb().subscribe(
-  //     (data: ITableResponse) => {
-  //       this.tarbaseTable.data = data.results;
-  //     }
-  //   );
-  // }
+  getMirDB(): void {
+    this.mirDbTable = {
+      columns: [
+        { id: 'mirna', name: 'Mirna'},
+        { id: 'geneName', name: 'Nome do Gene'},
+        { id: 'score', name:  'Pontuação'},
+        { id: 'species', name: 'Espécies' }
+      ],
+      data: []
+    };
+    this.table = this.mirDbTable;
+    this.tableActive = 'MirDB';
+
+    this.userService.mirDb().subscribe(
+      (data: ITableResponse) => {
+        this.mirDbTable.data = data.results;
+      }
+    );
+  }
+
 }
