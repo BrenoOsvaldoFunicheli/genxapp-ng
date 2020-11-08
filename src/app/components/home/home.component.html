@@ -1,0 +1,27 @@
+<div class="home-page">
+  <nav class="home-page__nav h-100">
+    <a href="">
+      <div class="image-logo">
+        <img src="../../../assets/images/logo-orange.png" alt="genxapp logo">
+      </div>
+    </a>
+
+    <div class="user-operations">
+      <a routerLink="edicao" class="no-text-decoration">
+        <div class="user-operations__user-info">
+            <div class="div-icon-user">
+              <i class="fas fa-user"></i>
+            </div>
+            <p class="m-0">{{userName}}</p>
+        </div>
+      </a>
+      <button (click)="logout()" class="btn btn-transparent ml-3">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    </div>
+
+  </nav>
+  <div class="container h-100">
+    <router-outlet></router-outlet>
+  </div>
+</div>

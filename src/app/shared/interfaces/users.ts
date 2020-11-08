@@ -1,5 +1,7 @@
-export interface IUserPostRequest {
+export interface IUser {
   username: string;
   email: string;
-  password: string;
+  password?: string;
+  first_name: string;
+  last_name: string;
 }

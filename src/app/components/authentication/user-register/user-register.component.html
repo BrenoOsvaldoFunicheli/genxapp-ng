@@ -1,0 +1,51 @@
+<!-- <alert type="success" [dismissOnTimeout]="4000" [isOpen]="isAlertOpenSuccess">
+  <strong>Well done!</strong> You successfully read this important alert message.
+</alert>
+
+<alert type="danger" [dismissOnTimeout]="5000" [isOpen]="isAlertOpenError">
+  <strong>ERROR:</strong> You successfully read this important alert message.
+</alert> -->
+
+<div class="register-page">
+  <form [formGroup]="userForm" class="register-page__form" (ngSubmit)="registerNewUser()" >
+
+    <a routerLink="/login" class="register-page__btn-back">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <div class="card-title text-center">
+      <img src="../../../assets/images/logo-orange.png" width="150px" height="150px">
+    </div>
+
+    <p class="register-page__title">Cadastre-se</p>
+
+    <div class="form-group">
+      <label class="label">Usuário:</label>
+      <input type="text" class="form-control" formControlName="username">
+    </div>
+
+    <div class="form-group">
+      <label class="label">E-mail:</label>
+      <input type="email" class="form-control" formControlName="email">
+    </div>
+
+    <div class="form-group">
+      <label class="label">Senha:</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+
+    <div class="form-group">
+      <label class="label">Nome:</label>
+      <input type="text" class="form-control" formControlName="first_name">
+    </div>
+
+    <div class="form-group">
+      <label class="label">Sobrenome:</label>
+      <input type="text" class="form-control" formControlName="last_name">
+    </div>
+    <button type="submit" class="btnResgisterUser btn-block btn btn-primary">
+      Cadastrar
+    </button>
+
+  </form>
+</div>

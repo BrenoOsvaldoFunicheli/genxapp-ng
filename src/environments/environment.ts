@@ -4,19 +4,27 @@
 
 export const environment = {
   production: false,
+
+  account: {
+    url: 'https://genxapp.herokuapp.com',
+    routes: {
+      login: '/api/v1/login/',
+      refresh: '/api/v1/login/refresh/'
+    }
+  },
+
   users: {
     url: 'https://genxapp.herokuapp.com',
     routes: {
-      get_user: '/api/v1/users/',
-    }
-  },
-  cadastroUser:{
-    url: 'https://genxapp.herokuapp.com',
-    routes:{
-      post_newUser: '/api/v1/users/',
+      user: '/api/v1/user/',
+      details: '/api/v1/user_auth/',
+      updateDetails: '/api/v1/user_auth/',
+      deleteUser: '/api/v1/user_auth/',
+      tarbase: '/api/v1/tarbase/',
+      tgscan: '/api/v1/tgscan/',
+      mirdb: '/api/v1/mirdb/'
     }
   }
-
 };
 
 /*
