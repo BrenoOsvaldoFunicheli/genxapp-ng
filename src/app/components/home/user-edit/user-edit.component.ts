@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/users/user.service';
 import { IUser } from '../../../shared/interfaces/users';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-edit',
@@ -17,7 +18,8 @@ export class UserEditComponent implements OnInit {
   constructor(
     private userService: UserService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -45,6 +47,9 @@ export class UserEditComponent implements OnInit {
     this.userService.getUserDetails().subscribe(
       (user: IUser) => {
         this.updateEditForm(user);
+      },
+      error => {
+        this.toastr.error('', error);
       }
     );
   }
@@ -53,6 +58,10 @@ export class UserEditComponent implements OnInit {
     this.userService.updateUserDetails(this.userEditForm.value).subscribe(
       data => {
         this.router.navigate(['']);
+        this.toastr.success('', 'Usuário editado com sucesso!');
+      },
+      error => {
+        this.toastr.error('', error);
       }
     );
   }
@@ -60,7 +69,12 @@ export class UserEditComponent implements OnInit {
   deleteUser(): void {
     this.userService.deleteUser().subscribe(
       (data) => {
+        window.localStorage.clear();
         this.router.navigate(['/login']);
+        this.toastr.success('', 'Usuário deletado com sucesso!');
+      },
+      error => {
+        this.toastr.error('', error);
       }
     );
   }

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ILoginResponse } from 'src/app/shared/interfaces/account';
 import { AccountService } from '../../../services/account/account.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,9 @@ export class LoginComponent implements OnInit {
             window.localStorage.setItem('token', data.access);
           }
           this.router.navigate(['']);
+        },
+        error => {
+          this.toastr.error('', error);
         }
       );
     }
@@ -49,6 +54,9 @@ export class LoginComponent implements OnInit {
       (data: ILoginResponse) => {
         window.localStorage.setItem('token', data.access);
         this.router.navigate(['']);
+      },
+      error => {
+        this.toastr.error('', error);
       }
     );
   }

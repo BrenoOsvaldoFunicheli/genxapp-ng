@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ITable, ITableResponse } from '../../../shared/interfaces/table';
 import { UserService } from '../../../services/users/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tables',
@@ -17,7 +18,8 @@ export class TablesComponent implements OnInit {
   tableActive: string;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +44,9 @@ export class TablesComponent implements OnInit {
     this.userService.tarbase().subscribe(
       (data: ITableResponse) => {
         this.tarbaseTable.data = data.results;
+      },
+      error => {
+        this.toastr.error('', error);
       }
     );
   }
@@ -63,6 +68,9 @@ export class TablesComponent implements OnInit {
     this.userService.targetScan().subscribe(
       (data: ITableResponse) => {
         this.tgScanTable.data = data.results;
+      },
+      error => {
+        this.toastr.error('', error);
       }
     );
   }
