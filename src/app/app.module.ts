@@ -10,8 +10,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { UserRegisterComponent } from './components/authentication/user-register/user-register.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
-import { httpInterceptorProviders } from './shared/http-interceptors/';
 import { ToastrModule } from 'ngx-toastr';
+import { httpInterceptorProviders } from './shared/http-interceptors';
 
 @NgModule({
   declarations: [
