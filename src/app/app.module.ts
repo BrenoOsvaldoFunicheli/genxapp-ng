@@ -29,11 +29,10 @@ import { ToastrModule } from 'ngx-toastr';
     HomeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 5000,
+      timeOut: 3000,
       positionClass: 'toast-top-center',
       preventDuplicates: true,
-      resetTimeoutOnDuplicate: true,
-      disableTimeOut: true
+      resetTimeoutOnDuplicate: true
     })
   ],
   providers: [
