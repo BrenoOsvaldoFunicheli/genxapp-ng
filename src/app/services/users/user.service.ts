@@ -23,7 +23,7 @@ export class UserService {
     this.userUrl = this.buildUrls('user');
     this.getUserDetailsUrl = this.buildUrls('details');
     this.updateUserDetailsUrl = this.buildUrls('updateDetails');
-    this.deleteUserUrl = this.buildUrls('delete');
+    this.deleteUserUrl = this.buildUrls('deleteUser');
     this.tarbaseUrl = this.buildUrls('tarbase');
     this.tgScanUrl = this.buildUrls('tgscan');
     this.mirDbUrl = this.buildUrls('mirdb');
